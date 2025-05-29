@@ -1,0 +1,1830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Webpage clone</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Navbar Styles start*/
+        .navbar {
+            background-color:#6A0DAD  ; /* Updated Navbar Background   #8900f1*/
+        }
+
+        .navbar-brand, .navbar-nav .nav-link {
+            color: #fff; /* White text */
+            
+        }
+
+        .navbar-brand:hover, .navbar-nav .nav-link:hover {
+            color: #CDC1FF; /* Hover Color */
+        }
+         /* Navbar Styles end*/
+
+        /* Carousel Styles */
+        .carousel-inner img {
+            height: 400px;
+            object-fit: cover;
+        }
+
+
+         /* img text slider */
+        .carousel-caption {
+    position: absolute;
+    top: 10px;  /* Adjust this value to set the distance from the top */
+    left: 10px; /* Adjust this value to set the distance from the left */
+    text-align: left;  /* Align the text to the left */
+    color: black;
+}
+
+.carousel-caption .badge {
+            background-color: #6b08d4;
+            padding: 8px 8px;
+            font-size: 0.9rem;
+            border-radius: 20px;
+        }
+
+
+
+        
+
+
+        /* Form Section Styles */
+        .form-section {
+            background-color: #e2d1fe; /* Light Purple Background */
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        /* Department Section Styles start*/
+        .department-section h2 {
+            color: #A294F9; /* Purple Heading */
+        }
+
+        .department-section .card {
+            cursor: pointer;
+            border: 1px solid #A294F9; /* Purple Border */
+            transition: transform 0.3s ease-in-out;
+            background-color: #E5D9F2; /* Light Purple Card Background */
+        }
+
+        .department-section .card:hover {
+            transform: scale(1.05);
+            background-color: #F5EFFF; /* Lightest Purple on Hover */
+        }
+
+        /* Media query for desktop view */
+        @media (min-width: 992px) {
+            .carousel-container {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .carousel-inner {
+                flex: 1;
+            }
+
+            .form-section {
+                flex: 1;
+                margin-left: 30px;
+            }
+        }
+/* Department Section Styles end*/
+
+
+
+
+
+
+/* text Section Styles start*/
+.lab-section {
+      background-color: #ffffff; /* Light gray background */
+      padding: 50px 20px;
+      text-align: center;
+    }
+    .lab-section h1 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #000000; /* Red color for headline */
+    }
+    .lab-section p {
+      font-size: 1.2rem;
+      color: #45484a; /* Gray text for description */
+      margin-top: 15px;
+    }
+
+/* text Section Styles end*/
+
+
+
+
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 32px;
+      color: #8900f1;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .accordion {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .accordion-section {
+      margin-bottom: 20px;
+      border-radius: 10px;
+      overflow: hidden;
+      /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+      background-color: #fff;
+    }
+
+    .accordion-header {
+      padding: 15px 20px;
+      background-image: linear-gradient(to right, #9706ff, #a303ff, #af01ff, #ba00ff, #c400ff);
+      color: #fff;
+      font-size: 20px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.3s;
+    }
+
+    .accordion-header:hover {
+      background-image: linear-gradient(to right, #9706ff, #a303ff, #af01ff, #ba00ff, #c400ff);;
+    }
+
+    .accordion-header span {
+      font-size: 22px;
+      transform: rotate(0deg);
+      transition: transform 0.3s ease;
+    }
+
+    .accordion-header.active span {
+      transform: rotate(180deg);
+    }
+
+    .accordion-content {
+      display: none;
+      padding: 20px;
+      /* background-color: #f9f9f9; */
+      
+    }
+
+    .test-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .test-card {
+      background-color: #f5efff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .test-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .test-card .test-info {
+      padding: 15px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .test-card .test-info h3 {
+      font-size: 18px;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .test-card .test-info p {
+      font-size: 14px;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    .test-card .test-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px;
+      background-color: #f5efff;
+    }
+
+    .test-card .test-price {
+      font-size: 18px;
+      font-weight: bold;
+      color: #7d00eb;  
+    }
+
+    .test-card .book-btn {
+      padding: 8px 15px;
+      background-color: #6A0DAD ;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background 0.3s;
+    }
+
+    .test-card .book-btn:hover {
+      background-color: #B983FF;
+    }
+
+    @media (max-width: 768px) {
+      .accordion-header {
+        font-size: 18px;
+      }
+    }
+     /* test card  Section end */
+
+
+
+
+        /* process  Section start */
+        .process-section {
+      padding: 60px 20px;
+      /* background: #E5D9F2; */
+      border-radius: 10px;
+    }
+
+    .process-title {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #4A3E7F;
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .process-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .process-step {
+      text-align: center;
+      max-width: 220px;
+      transition: all 0.4s ease-in-out;
+      position: relative;
+    }
+
+    .process-step:hover {
+      transform: translateY(-10px);
+    }
+
+    .step-icon {
+      background-image: linear-gradient(to right, #9706ff, #a303ff, #af01ff, #ba00ff, #c400ff);
+      color: #fff;
+      border-radius: 50%;
+      height: 120px;
+      width: 120px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2.5rem;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+      margin: auto;
+    }
+
+    .step-icon:hover {
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .step-content {
+      margin-top: 20px;
+    }
+
+    .step-content h5 {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #4A3E7F;
+      margin-bottom: 10px;
+    }
+
+    .step-content p {
+      font-size: 0.9rem;
+      color: #6C63A8;
+    }
+
+    /* Arrow connector for desktop view */
+    .connector {
+      position: absolute;
+      top: 50%;
+      right: -60px;
+      transform: translateY(-50%);
+      display: none;
+    }
+
+    .connector i {
+      font-size: 1.5rem;
+      color: #6A0DAD ;
+    }
+
+    /* Responsive Design */
+    @media (min-width: 768px) {
+      .process-step {
+        flex: 1 1 calc(16.66% - 30px);
+      }
+
+      .connector {
+        display: block;
+      }
+
+      .process-container .process-step:last-child .connector {
+        display: none;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .process-container {
+        gap: 20px;
+      }
+
+      .process-step {
+        flex: 1 1 calc(50% - 20px);
+      }
+
+      .step-icon {
+        height: 100px;
+        width: 100px;
+        font-size: 2rem;
+      }
+    }
+  
+
+       /* About Section Styles */
+#about {
+    /* background-color: #F5EFFF;  */
+    padding: 60px 0;
+    border-radius: 10px;
+    /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); */
+}
+
+#about h2 {
+    font-size: 2.5rem;
+    color: #A294F9; /* Purple color for heading */
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+#about h4 {
+    font-size: 1.5rem;
+    color: #4A3C6C; /* Darker text for subheadings */
+    font-weight: 600;
+}
+
+#about p {
+    color: #6F4E97; /* Text color */
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+#about .badge {
+    background-color: rgb(102, 0, 128);
+    color: white;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 25px;
+    margin-top: 15px;
+}
+
+#about img {
+    border: 5px solid #A294F9; /* Purple border around image */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#about .btn-primary {
+    background-color: #6A0DAD;
+    border: none;
+    padding: 10px 30px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+#about .btn-primary:hover {
+    background-color: #CDC1FF;
+}
+
+/* Mobile View Adjustments */
+@media (max-width: 767px) {
+    #about h2 {
+        font-size: 2rem;
+    }
+    #about h4 {
+        font-size: 1.3rem;
+    }
+    #about p {
+        font-size: 1rem;
+    }
+    #about .col-md-6 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+}
+
+
+
+
+
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<!-- Navbar with Logo -->
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="logo for Jijau Lab.jpg" alt="LabLogo" style="width: 100px; height: auto;">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#form">+91 2345672345</a></li>
+                <li class="nav-item"><a class="nav-link" href="#departments">Departments</a></li>
+                <li class="nav-item"><a class="nav-link" href="#form">Book Now</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero and Booking Form Section -->
+<div class="container mt-5 carousel-container ">
+    <!-- Carousel Section -->
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" style="flex: 1;">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="Take Away-pana.png" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Precision in<br> Every Test</h5>
+                    <p>A reliable <br>partner for<br> the best testing.</p>
+                    <span class="badge">Home visits till 7PM</span>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="Blood test-bro.png" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Your Health, Our Priority</h5>
+                    <p>Accurate results.<br> Quick turnaround.<br> Trusted care.</p>
+                </div>
+            </div>
+        </div>
+        
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <!-- Booking Form Section -->
+    <div id="form" class=" form-section" style="flex: 1; max-width: 400px;">
+        <h3 class="text-center">Book a Test</h3>
+        <form>
+            <div class="mb-3">
+                <label for="name" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter your name">
+            </div>
+            <div class="mb-3">
+                <label for="number" class="form-label">Number</label>
+                <input type="Number" class="form-control" id="number" placeholder="Enter your Number">
+            </div>
+            <div class="mb-3">
+                <label for="test" class="form-label">Select Test</label>
+                <select id="test" class="form-select">
+                  <option>Select Test</option>
+                    <option>Hematology</option>
+                    <option>Biochemistry</option>
+                    <option>Serology</option>
+                    <option>Clinical pathology</option>
+                    <option>Histopathology</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary w-100" style="background-color: #6A0DAD; border: #6A0DAD;">Book Now</button>
+        </form>
+    </div>
+</div>
+
+
+
+
+<section class="lab-section">
+    <div class="container">
+      <h1>Your Trusted Partner in Health Diagnostics</h1>
+      <p>
+        At <strong>Jijau Lab</strong>, we prioritize accuracy, reliability, and care
+        in every test we perform. Trust us to deliver precise results with
+        cutting-edge technology, empowering you to take control of your health.
+      </p>
+    </div>
+  </section>
+
+
+
+
+
+  <h1 >Diagnostic Tests Overview</h1>
+
+  <div class="accordion">
+    <!-- Hematology Section -->
+    <div class="accordion-section">
+      <div class="accordion-header">
+        Hematology <span>▼</span>
+      </div>
+      <div class="accordion-content">
+        <div class="test-list">
+          <!-- Hematology Tests Cards -->
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Complete Blood Count (CBC)</h3>
+              <p>Measures red blood cells, white blood cells, hemoglobin, hematocrit, and platelets to detect anemia, infections, and blood disorders.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$20</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Blood Smear</h3>
+              <p>Examines blood cells under a microscope to identify abnormalities in shape, size, or number.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$15</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Erythrocyte Sedimentation Rate (ESR)</h3>
+              <p>Measures the rate at which red blood cells settle; used to detect inflammation or infections.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$18</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Prothrombin Time (PT) and INR</h3>
+              <p>Assesses blood clotting time to monitor bleeding or clotting disorders.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$22</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Erythrocyte Sedimentation Rate (ESR)</h3>
+              <p>Measures the rate at which red blood cells settle; used to detect inflammation or infections.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$18</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Reticulocyte Count</h3>
+              <p>Measures immature red blood cells to evaluate bone marrow function and anemia.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$20</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Hemoglobin Electrophoresis</h3>
+              <p>Identifies abnormal hemoglobin types, such as in sickle cell anemia or thalassemia.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$30</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Iron Studies (Serum Iron, Ferritin, TIBC)</h3>
+              <p>Evaluates iron deficiency or overload in conditions like anemia.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$35</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          <div class="test-card">
+            <div class="test-info">
+              <h3>D-Dimer</h3>
+              <p>Detects blood clots, such as deep vein thrombosis or pulmonary embolism.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$40</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Bone Marrow Aspiration/Biopsy</h3>
+              <p>Examines bone marrow for leukemia, anemia, or other blood disorders.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$50</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Vitamin B12 and Folate Levels</h3>
+              <p>Detects deficiencies causing anemia or nerve damage.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$28</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Flow Cytometry</h3>
+              <p>Analyzes blood or bone marrow cells for leukemia, lymphoma, and immune disorders.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$55</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Lactate Dehydrogenase (LDH)</h3>
+              <p>Indicates cell damage or hemolysis.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$18</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          <div class="test-card">
+            <div class="test-info">
+              <h3>G6PD Test</h3>
+              <p>Diagnoses glucose-6-phosphate dehydrogenase deficiency.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$22</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Coombs Test (Direct/Indirect)</h3>
+              <p>Detects antibodies that attack red blood cells, useful in autoimmune hemolytic anemia.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$28</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          <div class="test-card">
+            <div class="test-info">
+              <h3>JAK2 Mutation Test</h3>
+              <p>Identifies genetic mutations linked to myeloproliferative disorders.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$40</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          
+          
+        </div>
+      </div>
+    </div>
+
+    <!-- Biochemistry Section -->
+    <div class="accordion-section">
+      <div class="accordion-header">
+        Biochemistry <span>▼</span>
+      </div>
+      <div class="accordion-content">
+        <div class="test-list">
+          <!-- Biochemistry Tests Cards -->
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Blood Glucose Test</h3>
+              <p>Measures blood sugar levels to diagnose diabetes and monitor its management.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$18</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Liver Function Tests (LFTs)</h3>
+              <p>Includes tests like ALT, AST, ALP, bilirubin, and albumin to evaluate liver health.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$30</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Renal Function Tests (RFTs)</h3>
+              <p>Measures creatinine, blood urea nitrogen (BUN), and electrolytes to assess kidney function.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$25</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Lipid Profile</h3>
+              <p>Evaluates cholesterol, triglycerides, LDL, and HDL levels to assess heart disease risk.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$35</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Electrolyte Panel</h3>
+              <p>Measures sodium, potassium, chloride, and bicarbonate levels for fluid and electrolyte balance.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$22</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Serum Proteins (Albumin and Globulin)</h3>
+              <p>Assesses nutritional status, liver function, and immune response.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$20</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Thyroid Function Tests (TFTs)</h3>
+              <p>Includes T3, T4, and TSH levels to diagnose and monitor thyroid disorders.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$28</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Uric Acid</h3>
+              <p>Measures uric acid levels to diagnose gout or kidney stones.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$24</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Calcium Test</h3>
+              <p>Checks calcium levels for bone health and parathyroid function.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$18</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Phosphorus</h3>
+              <p>Evaluates phosphorus levels for bone and kidney function.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$22</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Creatine Kinase (CK)</h3>
+              <p>Measures CK levels to detect muscle damage or heart disease.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$30</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          <div class="test-card">
+            <div class="test-info">
+              <h3>C-Reactive Protein (CRP)</h3>
+              <p>Detects inflammation in the body, commonly used in infections or autoimmune diseases.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$18</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Alkaline Phosphatase (ALP)</h3>
+              <p>Indicates liver or bone disorders.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$20</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Amylase and Lipase</h3>
+              <p>Measures pancreatic enzymes to diagnose pancreatitis.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$22</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Serum Iron and Ferritin</h3>
+              <p>Assesses iron stores and iron-deficiency anemia.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$26</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Vitamin D and Vitamin B12</h3>
+              <p>Evaluates deficiencies affecting bone health, nerve function, and red blood cell production.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$28</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          <div class="test-card">
+            <div class="test-info">
+              <h3>HbA1c (Glycated Hemoglobin)</h3>
+              <p>Provides a long-term overview of blood sugar control in diabetic patients.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$32</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Lactate Dehydrogenase (LDH)</h3>
+              <p>Indicates tissue damage or diseases like cancer or infections.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$25</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Bilirubin Test</h3>
+              <p>Measures bilirubin levels to diagnose jaundice or liver dysfunction.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$20</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Hormonal Assays</h3>
+              <p>Includes tests like estrogen, testosterone, prolactin, and cortisol to assess endocrine function.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$40</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+        </div>
+        
+      </div></div>
+
+
+
+
+      <!-- Serology Section -->
+    <div class="accordion-section">
+      <div class="accordion-header">
+        Serology <span>▼</span>
+      </div>
+      <div class="accordion-content">
+        <div class="test-list">
+          <!-- Serology Tests Cards -->
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Widal Test</h3>
+              <p>Detects antibodies against Salmonella typhi bacteria for diagnosing typhoid fever.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$50</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          <div class="test-card">
+            <div class="test-info">
+              <h3>VDRL (Venereal Disease Research Laboratory) Test</h3>
+              <p>Screens for syphilis by detecting antibodies in the blood.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$40</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          <div class="test-card">
+            <div class="test-info">
+              <h3>ASO (Antistreptolysin O) Test</h3>
+              <p>Detects antibodies against streptococcal infections, often linked to rheumatic fever.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$45</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Rheumatoid Factor (RF) Test</h3>
+              <p>Detects rheumatoid factor antibodies, used to diagnose rheumatoid arthritis.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$55</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          <div class="test-card">
+            <div class="test-info">
+              <h3>CRP (C-Reactive Protein) Test</h3>
+              <p>Identifies inflammation or infection in the body.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$50</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Rapid Plasma Reagin (RPR) Test</h3>
+              <p>Another screening test for syphilis.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$40</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          <div class="test-card">
+            <div class="test-info">
+              <h3>HIV Test</h3>
+              <p>Detects antibodies against the Human Immunodeficiency Virus (HIV).</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$40</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          <div class="test-card">
+            <div class="test-info">
+              <h3>HBsAg Test</h3>
+              <p>Detects hepatitis B surface antigen for diagnosing hepatitis B infection.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$45</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Anti-HCV Antibody Test</h3>
+              <p>Identifies antibodies for the hepatitis C virus.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$50</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Dengue Serology</h3>
+              <p>Detects antibodies (IgM and IgG) or antigen (NS1) for diagnosing dengue fever.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$60</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Malaria Antigen Test</h3>
+              <p>Rapid detection of Plasmodium species causing malaria.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$45</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Leptospirosis Test</h3>
+              <p>Detects antibodies against Leptospira bacteria.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$50</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Tuberculosis (TB) Tests</h3>
+              <p>Includes Mantoux test (skin test) and IGRA (Interferon-Gamma Release Assay).</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$70</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Anti-Nuclear Antibody (ANA) Test</h3>
+              <p>Detects autoantibodies for diagnosing autoimmune diseases like lupus.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$80</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          <div class="test-card">
+            <div class="test-info">
+              <h3>TORCH Panel</h3>
+              <p>Screens for infections in pregnant women, including Toxoplasmosis, Rubella, Cytomegalovirus, and Herpes simplex virus.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$90</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Covid-19 Antibody Test</h3>
+              <p>Detects antibodies to determine prior exposure to SARS-CoV-2.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$30</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Brucella Antibody Test</h3>
+              <p>Identifies antibodies against Brucella bacteria, causing brucellosis.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$60</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Epstein-Barr Virus (EBV) Test</h3>
+              <p>Detects antibodies to diagnose infectious mononucleosis.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$70</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Helicobacter pylori Antibody Test</h3>
+              <p>Screens for antibodies against H. pylori, linked to peptic ulcers.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$50</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Scrub Typhus Test</h3>
+              <p>Detects antibodies for diagnosing scrub typhus caused by Orientia tsutsugamushi.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$55</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+        </div>
+
+</div></div>
+
+
+      
+
+
+         <!-- Clinical pathology Section -->
+    <div class="accordion-section">
+      <div class="accordion-header">
+        Clinical pathology <span>▼</span>
+      </div>
+      <div class="accordion-content">
+        <div class="test-list">
+          <!-- Clinical pathology Tests Cards -->
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Urine Routine Examination</h3>
+              <p>Analyzes physical, chemical, and microscopic properties of urine to detect infections, kidney disorders, or metabolic conditions.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$50</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Stool Routine Examination</h3>
+              <p>Checks stool samples for parasites, blood, mucus, or infections.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$45</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Semen Analysis</h3>
+              <p>Evaluates sperm count, motility, and morphology for fertility assessment.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$80</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Peripheral Blood Smear</h3>
+              <p>Examines blood cells under a microscope to detect abnormalities in size, shape, or number.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$60</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Body Fluid Analysis</h3>
+              <p>Includes pleural, peritoneal, synovial, and cerebrospinal fluid examination to detect infections, inflammation, or cancer.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$100</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Complete Urine Examination (CUE)</h3>
+              <p>Includes pH, protein, sugar, ketones, blood, and nitrite levels for diagnosing kidney and metabolic disorders.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$55</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Sputum Examination</h3>
+              <p>Analyzes sputum for bacterial, fungal, or mycobacterial infections like tuberculosis.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$70</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Bone Marrow Aspiration and Biopsy</h3>
+              <p>Assesses bone marrow disorders like anemia, leukemia, or lymphoma.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$200</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Pap Smear</h3>
+              <p>Screens for cervical cancer and other abnormalities in the cervix.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$50</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Fine Needle Aspiration Cytology (FNAC)</h3>
+              <p>Examines cells from lumps or masses to diagnose tumors or infections.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$120</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Biopsy Examination</h3>
+              <p>Tissue samples are analyzed for diagnosing cancer or chronic inflammatory diseases.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$250</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Fluid Cytology</h3>
+              <p>Analyzes cells in fluids like pleural or peritoneal fluid for malignancy or infections.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$150</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Synovial Fluid Analysis</h3>
+              <p>Tests joint fluid to diagnose gout, arthritis, or infections.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$110</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Hematology Parameters</h3>
+              <p>Includes complete blood count (CBC), ESR, and coagulation studies.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$65</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Special Stain Tests</h3>
+              <p>Detects specific infections or abnormalities using stains like Gram stain or Ziehl-Neelsen stain.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$90</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Urine Culture</h3>
+              <p>Detects bacteria causing urinary tract infections (UTIs).</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$80</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Stool Culture</h3>
+              <p>Identifies pathogens causing gastrointestinal infections.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$85</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Sweat Test</h3>
+              <p>Measures chloride levels for diagnosing cystic fibrosis.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$140</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Vaginal Smear</h3>
+              <p>Detects infections or hormonal imbalances in vaginal secretions.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$60</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Cytopathology Tests</h3>
+              <p>Includes examination of exfoliated or aspirated cells for infections, malignancies, or benign conditions.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$120</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          </div></div></div>
+          
+
+
+
+
+
+
+
+           <!-- Histopathology Section -->
+    <div class="accordion-section">
+      <div class="accordion-header">
+        Histopathology <span>▼</span>
+      </div>
+      <div class="accordion-content">
+        <div class="test-list">
+          <!-- Histopathology Tests Cards -->
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Biopsy Examination</h3>
+              <p>Examination of tissue samples from organs like the liver, lungs, or skin to diagnose diseases like cancer, infections, or chronic conditions.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$150</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Surgical Specimen Analysis</h3>
+              <p>Analysis of tissues removed during surgery (e.g., tumors, cysts) to determine if they are benign or malignant.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$200</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Frozen Section</h3>
+              <p>Rapid tissue examination during surgery to assist in immediate decision-making, such as ensuring complete tumor removal.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$250</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Immunohistochemistry (IHC)</h3>
+              <p>Uses antibodies to detect specific antigens in tissue samples, helping diagnose cancers, infections, and other diseases.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$300</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Fine Needle Aspiration Cytology (FNAC)</h3>
+              <p>Examines cells obtained by needle aspiration from lumps or masses to diagnose infections, cysts, or tumors.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$120</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Excisional Biopsy</h3>
+              <p>Complete removal of a lesion or tumor, followed by detailed tissue analysis.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$180</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Incisional Biopsy</h3>
+              <p>Partial removal of tissue from a larger lesion for diagnostic purposes.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$160</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Endoscopic Biopsy</h3>
+              <p>Tissue samples obtained during endoscopy (e.g., gastrointestinal tract, bronchi) for disease diagnosis.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$220</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Cervical Biopsy</h3>
+              <p>Examination of cervical tissue to diagnose precancerous conditions or cervical cancer.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$170</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Lymph Node Biopsy</h3>
+              <p>Assesses lymph nodes for signs of infection, lymphoma, or metastasis from other cancers.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$200</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Skin Biopsy</h3>
+              <p>Examines skin tissue to diagnose conditions like psoriasis, eczema, skin cancer, or infections.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$150</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Bone Marrow Biopsy</h3>
+              <p>Analyzes bone marrow tissue to diagnose leukemia, anemia, or other bone marrow disorders.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$300</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Breast Tissue Analysis</h3>
+              <p>Includes core needle biopsy or excision biopsy to diagnose benign or malignant breast lesions.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$250</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Kidney Biopsy</h3>
+              <p>Evaluates kidney tissue for conditions like glomerulonephritis, nephrotic syndrome, or rejection after a transplant.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$180</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Liver Biopsy</h3>
+              <p>Examines liver tissue to diagnose hepatitis, cirrhosis, or tumors.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$200</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Lung Biopsy</h3>
+              <p>Diagnoses lung infections, interstitial lung disease, or lung cancer.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$250</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Prostate Biopsy</h3>
+              <p>Assesses prostate tissue to diagnose benign prostatic hyperplasia (BPH) or prostate cancer.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$220</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Gastrointestinal Biopsy</h3>
+              <p>Includes esophageal, stomach, or colon biopsies to diagnose conditions like inflammatory bowel disease (IBD), ulcers, or cancer.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$240</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Neuropathology Analysis</h3>
+              <p>Examines brain or nerve tissue for conditions like tumors, Alzheimer’s disease, or infections.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$280</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          
+          <div class="test-card">
+            <div class="test-info">
+              <h3>Placental Histopathology</h3>
+              <p>Analyzes placental tissue to identify pregnancy-related complications or infections.</p>
+            </div>
+            <div class="test-footer">
+              <span class="test-price">$220</span>
+              <button class="book-btn">Book Now</button>
+            </div>
+          </div>
+          
+
+
+
+        
+      
+    </div>
+
+
+
+
+    
+  </div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="testModal" tabindex="-1" aria-labelledby="testModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="testModalLabel">Test Options</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="testOptions">
+                <!-- Test options will be inserted dynamically -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+ <!-- process work Section start-->
+ 
+<div class="process-section">
+  <h2 class="process-title">Here's How the Process Works</h2>
+  <div class="process-container">
+    <!-- Step 1 -->
+    <div class="process-step">
+      <div class="step-icon">
+        <i class="fas fa-phone-alt"></i>
+      </div>
+      <div class="step-content">
+        <h5>Give us a call</h5>
+        <p>Reach out to us to book an appointment.</p>
+      </div>
+      <div class="connector">
+        <i class="fas fa-arrow-right"></i>
+      </div>
+    </div>
+    <!-- Step 2 -->
+    <div class="process-step">
+      <div class="step-icon">
+        <i class="fas fa-map-marker-alt"></i>
+      </div>
+      <div class="step-content">
+        <h5>Provide Address</h5>
+        <p>Let us know where and when to visit.</p>
+      </div>
+      <div class="connector">
+        <i class="fas fa-arrow-right"></i>
+      </div>
+    </div>
+    <!-- Step 3 -->
+    <div class="process-step">
+      <div class="step-icon">
+        <i class="fas fa-user-md"></i>
+      </div>
+      <div class="step-content">
+        <h5>Sample Collection</h5>
+        <p>Our phlebotomist arrives to collect your sample.</p>
+      </div>
+      <div class="connector">
+        <i class="fas fa-arrow-right"></i>
+      </div>
+    </div>
+    <!-- Step 4 -->
+    <div class="process-step">
+      <div class="step-icon">
+        <i class="fas fa-vial"></i>
+      </div>
+      <div class="step-content">
+        <h5>Processing</h5>
+        <p>Your sample is processed in the lab.</p>
+      </div>
+      <div class="connector">
+        <i class="fas fa-arrow-right"></i>
+      </div>
+    </div>
+    <!-- Step 5 -->
+    <div class="process-step">
+      <div class="step-icon">
+        <i class="fas fa-file-medical"></i>
+      </div>
+      <div class="step-content">
+        <h5>Receive Reports</h5>
+        <p>Access your reports online or offline.</p>
+      </div>
+    </div>
+  </div>
+</div>
+ <!-- process work Section end-->
+
+
+
+
+<!-- About Section -->
+<div id="about" class="container mt-5">
+    <h2 class="text-center mb-5" style="color: #A294F9; font-weight: bold;">About Our Lab</h2>
+    <div class="row align-items-center">
+        <!-- Lab Info -->
+        <div class="col-md-6">
+            <h4 class="mb-4" style="font-size: 1.5rem; color: #4A3C6C; font-weight: 600;">Precision. Care. Trust.</h4>
+            <p style="font-size: 1.1rem; color: #6F4E97; line-height: 1.8;">
+                At our lab, your health is our top priority. Equipped with cutting-edge technology, we provide fast, reliable, and accurate diagnostic tests to ensure the best care for you. Every test is conducted with precision, ensuring your peace of mind.
+            </p>
+            <div class="badge rounded-pill" style="background-color: #b413dc; color: white; padding: 10px 20px; font-size: 1rem;">Quality You Can Trust</div>
+        </div>
+        <!-- Mr. Pavan Info -->
+        <!-- <div class="col-md-6 text-center">
+            <img src="x.jpeg" alt="Mr. Pavan" class="img-fluid rounded-circle shadow-lg" style="width: 250px; height: 250px; object-fit: cover; border: 5px solid #A294F9;">
+            <h4 class="mt-4" style="color: #4A3C6C; font-size: 1.3rem;">Meet Mr. Pavan</h4>
+            <p style="font-size: 1rem; color: #6F4E97; line-height: 1.6;">Owner & Lab Technician</p>
+            <p class="mt-3" style="font-size: 1.1rem; color: #6F4E97; line-height: 1.8;">
+                With over 10 years of experience, Mr. Pavan combines his expertise with a deep commitment to quality care. As the owner and lead technician, he ensures that every test is conducted with precision, empowering you with the trust you need for your health decisions.
+            </p>
+            <div class="mt-3">
+                <button class="btn btn-primary" style="background-color: #A294F9; border: none;">Get in Touch</button>
+            </div>
+        </div> -->
+    </div>
+</div>
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    const testOptions = {
+        Hematology: [
+            { name: "CBC", price: "₹500", details: "Detailed blood analysis." },
+            { name: "Hemoglobin", price: "₹300", details: "Measures hemoglobin level." }
+        ],
+        Biochemistry: [
+            { name: "LFT", price: "₹800", details: "Liver function test." },
+            { name: "KFT", price: "₹700", details: "Kidney function test." }
+        ],
+        Serology: [
+            { name: "HIV Test", price: "₹1000", details: "HIV antibodies." },
+            { name: "Widal Test", price: "₹500", details: "Typhoid detection." }
+        ],
+        Histopathology: [
+            { name: "Biopsy", price: "₹1500", details: "Tissue sample analysis." },
+            { name: "Cytology", price: "₹1000", details: "Cell structure testing." }
+        ],
+        Microbiology: [
+            { name: "Culture Test", price: "₹1200", details: "Pathogen growth testing." },
+            { name: "Sensitivity Test", price: "₹800", details: "Antibiotic effectiveness." }
+        ],
+        ClinicalPathology: [
+            { name: "Urinalysis", price: "₹400", details: "Urine analysis for diseases." },
+            { name: "Fluid Test", price: "₹600", details: "Body fluid diagnostics." }
+        ]
+    };
+
+    function showTests(department) {
+        const modalBody = document.getElementById('testOptions');
+        modalBody.innerHTML = testOptions[department]
+            .map(test => `
+                <div class="test-item">
+                    <h6>${test.name}</h6>
+                    <p><strong>Price:</strong> ${test.price}</p>
+                    <p><strong>Details:</strong> ${test.details}</p>
+                    <button class="btn btn-success" onclick="bookTest('${test.name}', '${test.price}')">Book Now</button>
+                </div>
+            `)
+            .join('');
+        const modalTitle = document.getElementById('testModalLabel');
+        modalTitle.textContent = `${department} Tests`;
+        const testModal = new bootstrap.Modal(document.getElementById('testModal'));
+        testModal.show();
+    }
+
+    function bookTest(testName, price) {
+        alert(`You have booked ${testName} (${price}). Proceed to booking.`);
+    }
+</script>
+
+
+<script>
+    document.querySelectorAll('.accordion-header').forEach((header) => {
+      header.addEventListener('click', () => {
+        const content = header.nextElementSibling;
+        header.classList.toggle('active');
+        if (content.style.display === 'block') {
+          content.style.display = 'none';
+        } else {
+          content.style.display = 'block';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
